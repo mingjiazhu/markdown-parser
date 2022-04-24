@@ -11,15 +11,35 @@ public class MarkdownParse {
         ArrayList<String> toReturn = new ArrayList<>();
         // find the next [, then find the ], then find the (, then read link upto next )
         int currentIndex = 0;
+        boolean validMarkdownLink = true;
         while(currentIndex < markdown.length()) {
+            //System.out.println(validMarkdownLink);
+            int imageMarker = markdown.indexOf("!",currentIndex);
             int openBracket = markdown.indexOf("[", currentIndex);
             int closeBracket = markdown.indexOf("]", openBracket);
             int openParen = markdown.indexOf("(", closeBracket);
             int closeParen = markdown.indexOf(")", openParen);
-            toReturn.add(markdown.substring(openParen + 1, closeParen));
+            if(closeParen-openParen==-1)
+            {
+                validMarkdownLink=false;
+                //System.out.println("link is empty");
+                currentIndex = closeParen + 1;
+                continue;
+            }
+            else if(openBracket==-1||openParen==-1||closeBracket==-1||closeParen==-1)
+            {
+                //System.out.println("no brackets or parantheses");
+                validMarkdownLink=false;
+                break;
+            }
+            if(validMarkdownLink==true)
+            {
+                //System.out.println("found");
+                toReturn.add(markdown.substring(openParen + 1, closeParen));
+            }
             currentIndex = closeParen + 1;
+            validMarkdownLink=true;
         }
-
         return toReturn;
     }
 
