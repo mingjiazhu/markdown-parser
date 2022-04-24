@@ -36,6 +36,13 @@ public class MarkdownParse {
             {
                 validMarkdownLink=false;
             }
+            if(openParen-closeBracket!=1||closeParen-openParen==1){
+                validMarkdownLink=false;
+                //System.out.println("incorrect link syntax");
+                //second portion tests empty link
+                currentIndex=openParen+1;
+                continue;  
+            }
             if(validMarkdownLink==true)
             {
                 //System.out.println("found");

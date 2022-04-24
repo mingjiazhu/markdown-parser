@@ -32,4 +32,23 @@ public class MarkdownParseTest {
         assertEquals("tests if the links are the same", 0, links.size());
     }
 
+    @Test
+    public void TestLinksNoParantheses()throws IOException{   
+        content = Files.readString(Path.of("testNoParantheses.md"));
+        ArrayList<String> links = MarkdownParse.getLinks(content);
+        assertEquals("tests if the links are the same", 0, links.size());
+    }
+    @Test
+    public void TestLinksNoBrackets()throws IOException{   
+        content = Files.readString(Path.of("testNoBracket.md"));
+        ArrayList<String> links = MarkdownParse.getLinks(content);
+        assertEquals("tests if the links are the same", 0, links.size());
+    }
+    @Test
+    public void TestLinksNoLink()throws IOException{   
+        content = Files.readString(Path.of("testNoLink.md"));
+        ArrayList<String> links = MarkdownParse.getLinks(content);
+        assertEquals("tests if the links are the same", 0, links.size());
+    }
+
 }
