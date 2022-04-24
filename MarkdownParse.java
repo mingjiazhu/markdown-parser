@@ -32,6 +32,10 @@ public class MarkdownParse {
                 validMarkdownLink=false;
                 break;
             }
+            else if(imageMarker==openBracket-1&& imageMarker!=-1)
+            {
+                validMarkdownLink=false;
+            }
             if(validMarkdownLink==true)
             {
                 //System.out.println("found");
