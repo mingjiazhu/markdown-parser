@@ -64,7 +64,7 @@ public class MarkdownParseTest {
     public void TestLinksNoLink2()throws IOException{   
         content = Files.readString(Path.of("test-file7.md"));
         ArrayList<String> links = MarkdownParse.getLinks(content);
-        assertEquals("tests if the links are the same", 1, links.size());
+        assertEquals("tests if the links are the same", 0, links.size());
     }
 
 
