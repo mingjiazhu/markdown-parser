@@ -51,4 +51,15 @@ public class MarkdownParseTest {
         assertEquals("tests if the links are the same", 0, links.size());
     }
 
+    @Test
+    public void testGetLinks2()throws IOException{   
+        MarkdownParse m = new MarkdownParse();
+        List l = List.of("a", "some-thing.html");
+        Path p = Paths.get("test-file.md");
+        String st = Files.readString(p);
+        assertEquals(l, m.getLinks(st));
+    }
+
+
+
 }
