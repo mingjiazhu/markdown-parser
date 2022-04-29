@@ -28,8 +28,6 @@ public class MarkdownParse {
             }
             else if(openBracket==-1||openParen==-1||closeBracket==-1||closeParen==-1)
             {
-                //System.out.println("no brackets or parantheses");
-                validMarkdownLink=false;
                 break;
             }
             else if(imageMarker==openBracket-1&& imageMarker!=-1)
