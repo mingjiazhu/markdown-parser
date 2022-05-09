@@ -50,10 +50,6 @@ public class MarkdownParse {
             validMarkdownLink=true;
         }
         return toReturn;
-<<<<<<< HEAD
-=======
-        // new comment
->>>>>>> a75d814102b5d9647a79e656159be8fcda9d7164
     }
 
 
