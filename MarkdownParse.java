@@ -50,7 +50,6 @@ public class MarkdownParse {
             validMarkdownLink=true;
         }
         return toReturn;
-        // comment
     }
 
 
